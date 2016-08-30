@@ -13,14 +13,16 @@ var Mercury = {
 var customPhrasesText;
 var customPhrases;
 try {
-  customPhrasesText = fs.readFileSync(_dirname + '/custom-phrases.json').toString();
+  customPhrasesText = fs.readFileSync(__dirname + '/custom-phrases.json').toString();
 } catch (err) {
-  throw new Error('Uh oh, Mercury could not find the' + 'custom-phrases.json file, did you move it?');
+  throw new Error('Uh oh, Mercury could not find the ' +
+    'custom-phrases.json file, did you move it?');
 }
 try {
   customPhrases = JSON.parse(customPhrasesText);
 } catch (err) {
-  throw new Error('Uh oh, custom-phrases.json was' + 'not valid JSON! fix it, please? =]');
+  throw new Error('Uh oh, custom-phrases.json was ' +
+    'not valid JSON! Fix it, please? :)');
 }
 
 console.log('Mercury is learning...');
@@ -38,12 +40,20 @@ Mercury.Ears
   .hear('.*', function(speech, message) {
     var interpretation = Mercury.Brain.interpret(message.text);
     console.log('Mercury heard: ' + message.text);
-    console.log('Mercury interpretation: ' + interpretation);
+    console.log('Mercury interpretation: ', interpretation);
     if (interpretation.guess) {
       console.log('Invoking skill: ' + interpretation.guess);
       Mercury.Brain.invoke(interpretation.guess, interpretation, speech, message);
     } else {
-      speech.reply(message, 'Hmm... I couldn\'t tell what you said..');
+      speech.reply(message, 'Hmm... I couldn\'t tell what you said...');
       speech.reply(message, '```\n' + JSON.stringify(interpretation) + '\n```');
     }
   });
+
+
+
+function eachKey(object, callback) {
+  Object.keys(object).forEach(function(key) {
+    callback(key, object[key]);
+  });
+}
