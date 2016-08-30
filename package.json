@@ -1,0 +1,34 @@
+{
+  "name": "protipigi",
+  "version": "1.0.0",
+  "description": "nlp slack bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapineda/protipigi.git"
+  },
+  "author": "Marco P (http://www.owlery.club/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mapineda/protipigi/issues"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "botkit",
+    "nlp",
+    "ai",
+    "natural",
+    "language",
+    "marco",
+    "pineda"
+  ],
+  "homepage": "https://github.com/mapineda/protipigi#readme",
+  "dependencies": {
+    "botkit": "0.2.2",
+    "natural": "0.4.0"
+  }
+}
